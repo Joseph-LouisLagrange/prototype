@@ -1,0 +1,13 @@
+applet:
+  auth:
+    app-ID: xxx
+    secret: xxx
+    grant-type: xxx
+    login-path: xxx
+sms:
+  aliyun:
+    sign-name: xxx
+    access-key-id: xxx
+    access-key-secret: xxx
+
+
