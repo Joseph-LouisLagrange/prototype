@@ -1,4 +1,4 @@
-package com.darwin.prototype.config.security;
+package com.darwin.prototype.config.security.handler;
 
 import com.darwin.prototype.dto.LoginDto;
 import org.springframework.security.core.Authentication;

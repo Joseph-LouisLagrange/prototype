@@ -3,7 +3,7 @@ applet:
     app-ID: xxx
     secret: xxx
     grant-type: xxx
-    login-path: xxx
+    login-path: /login/applet
 sms:
   aliyun:
     sign-name: xxx

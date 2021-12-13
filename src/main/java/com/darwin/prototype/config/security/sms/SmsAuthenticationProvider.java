@@ -1,6 +1,5 @@
 package com.darwin.prototype.config.security.sms;
 
-import com.darwin.prototype.base.Verifier;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -17,15 +16,10 @@ import org.springframework.util.ClassUtils;
  */
 public class SmsAuthenticationProvider implements AuthenticationProvider {
 
-    Verifier<String,String> smsVerifier;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         SmsAuthenticationToken smsAuthenticationToken = (SmsAuthenticationToken)authentication;
-        if (!smsVerifier.verifyAndDelete(smsAuthenticationToken.getPhone(),smsAuthenticationToken.getCaptcha())){
-            throw new BadCredentialsException("验证码错误");
-        }
-        smsAuthenticationToken.setAuthenticated(true);
         return smsAuthenticationToken;
     }
 

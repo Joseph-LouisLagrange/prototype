@@ -1,24 +1,14 @@
 package com.darwin.prototype.base.acl;
 
-import com.darwin.prototype.base.PermissionChecker;
 import com.darwin.prototype.doj.User;
-import com.darwin.prototype.doj.sys.Permission;
-import com.darwin.prototype.service.inf.sys.RoleService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Set;
 
 /**
  * [主] 权限执行器

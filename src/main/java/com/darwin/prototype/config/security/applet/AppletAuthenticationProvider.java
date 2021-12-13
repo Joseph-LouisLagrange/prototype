@@ -3,6 +3,7 @@ package com.darwin.prototype.config.security.applet;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ClassUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.*;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+@Slf4j
 @Getter
 @Setter
 /**
@@ -60,7 +62,7 @@ public class AppletAuthenticationProvider implements AuthenticationProvider {
         Map<String,Object> body=restTemplate.getForObject(CODE_TO_SESSION_URL,Map.class
                 ,getRequestParameterMap(appletAuthenticationToken.getCode()));
         Assert.notNull(body,"Applet response body is null");
-        Integer errCode = (Integer) body.get("err_code");
+        Integer errCode = (Integer) body.get("errcode");
         AuthenticationException authenticationException = getAuthenticationException(errCode);
         if (Objects.nonNull(authenticationException)){
             throw authenticationException;
@@ -74,7 +76,7 @@ public class AppletAuthenticationProvider implements AuthenticationProvider {
     private void updateAppletAuthenticationTokenState(AppletAuthenticationToken appletAuthenticationToken,Map<String,Object> body){
         appletAuthenticationToken.setAuthenticated(true);
         appletAuthenticationToken.setOpenID((String) body.get("openid"));
-        appletAuthenticationToken.setSessionKey((String) body.get("session_key"));
+        appletAuthenticationToken.setSessionKey((String) body.get("sessionkey"));
         appletAuthenticationToken.setUnionID((String) body.get("unionid"));
     }
 
@@ -84,6 +86,7 @@ public class AppletAuthenticationProvider implements AuthenticationProvider {
             case 40029:return new CredentialsExpiredException("code 无效");
             case 45011:return new DisabledException("频率限制，每个用户每分钟100次");
             case 40226:return new LockedException("高风险等级用户，小程序登录拦截");
+            case 40013:return new DisabledException("无效的 appid");
         }
         return null;
     }

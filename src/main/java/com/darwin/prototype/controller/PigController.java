@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 
 @RestController
-public class FuckController {
+public class PigController {
     @GetMapping("/hello")
     public String hello(HttpSession session){
-        session.setAttribute("fuck","you");
         return "hello";
     }
 }

@@ -3,6 +3,7 @@ package com.darwin.prototype.config.security;
 
 import com.darwin.prototype.config.security.applet.AppletAuthenticationProvider;
 import com.darwin.prototype.config.security.applet.AppletLoginConfigurer;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -48,6 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     List<? extends SecurityConfigurer<DefaultSecurityFilterChain,HttpSecurity>> securityConfigurers;
 
+    @Autowired
+    RestTemplate restTemplate;
 
     @Override
     public void configure(WebSecurity web) throws Exception {

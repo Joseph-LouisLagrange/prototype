@@ -1,11 +1,12 @@
 package com.darwin.prototype.config.security.applet;
 
-import com.darwin.prototype.config.security.SimpleAuthFailureHandler;
-import com.darwin.prototype.config.security.SimpleAuthSuccessHandler;
+import com.darwin.prototype.config.security.handler.SimpleAuthFailureHandler;
+import com.darwin.prototype.config.security.handler.SimpleAuthSuccessHandler;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.HttpSecurityBuilder;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.session.SessionManagementFilter;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.Filter;
@@ -31,7 +32,7 @@ public class AppletLoginConfigurer<T extends AppletLoginConfigurer<T, B>, B exte
     public void configure(B http) throws Exception {
         http.authenticationProvider(appletAuthenticationProvider);
         AuthenticationManager authenticationManager = http.getSharedObject(AuthenticationManager.class);
-        http.addFilterBefore(getFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAfter(getFilter(authenticationManager), SessionManagementFilter.class);
     }
 
     private Filter getFilter(AuthenticationManager authenticationManager){

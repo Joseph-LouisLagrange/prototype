@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -26,7 +28,8 @@ class PrototypeApplicationTests {
 
     @Test
     public void test(){
-        roleService.getPermissionsOfRole("ADMIN").forEach(System.out::println);
-        roleService.getPermissionsOfRole("USER").forEach(System.out::println);
+        AntPathRequestMatcher matcher = new AntPathRequestMatcher("/login/applet");
+        MockHttpServletRequest request = new MockHttpServletRequest("GET","/login/applet");
+        Assertions.assertTrue(matcher.matches(request));
     }
 }

@@ -51,6 +51,3 @@ server:
       charset: UTF-8
   tomcat:
     uri-encoding: UTF-8
-logging:
-  level:
-    root: debug

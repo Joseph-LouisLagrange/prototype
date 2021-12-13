@@ -2,8 +2,6 @@ package com.darwin.prototype.config.ext.sms;
 
 import com.aliyun.dysmsapi20170525.Client;
 import com.aliyun.teaopenapi.models.Config;
-import com.darwin.prototype.base.LocalMapVerifier;
-import com.darwin.prototype.base.Verifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -23,10 +21,5 @@ public class SmsConfig {
                 .setAccessKeyId(smsConfigurationProperties.getAccessKeyID())
                 .setAccessKeySecret(smsConfigurationProperties.getAccessKeySecret());
         return new Client(config);
-    }
-
-    @Bean
-    public Verifier<String,String> smsVerifier(){
-        return new LocalMapVerifier<>();
     }
 }

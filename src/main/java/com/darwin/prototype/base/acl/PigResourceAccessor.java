@@ -1,4 +1,4 @@
-package com.darwin.prototype.base.acl.rar.impl;
+package com.darwin.prototype.base.acl;
 
 import com.darwin.prototype.base.acl.AbstractResourceAccessor;
 
