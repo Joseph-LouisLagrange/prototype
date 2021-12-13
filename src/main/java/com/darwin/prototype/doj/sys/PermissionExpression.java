@@ -1,6 +1,7 @@
 package com.darwin.prototype.doj.sys;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.Assert;
@@ -14,28 +15,26 @@ import java.io.Serializable;
  */
 @Data
 @Embeddable
+@EqualsAndHashCode
 @RequiredArgsConstructor(staticName = "of")
 public class PermissionExpression implements Serializable {
 
-    public static final String ALL_ACTION = "*";
-
-    public static final String ALL_TARGET_ID = "*";
-
     @NonNull
-    @Column(name = "target_type",unique = true,updatable = false,columnDefinition = "VARCHAR(128)")
-    private String targetType;          // 域类型
+    @Column(name = "resource_type",unique = true,updatable = false,columnDefinition = "VARCHAR(128)")
+    private String resourceType;          // 资源类型
 
     @NonNull
     @Column(name = "action",unique = true,updatable = false,columnDefinition = "VARCHAR(128)")
     private String action;              // 动作
 
     @NonNull
-    @Column(name = "target_id",unique = true,updatable = false,columnDefinition = "VARCHAR(128)")
-    private String targetID;      // 域对象 ID
+    @Column(name = "resource_id",updatable = false,columnDefinition = "VARCHAR(64)")
+    private String resource;      // 资源对象
 
     public PermissionExpression() {
 
     }
+
 
     /**
      * <h3>解析表达式</h3>
@@ -56,8 +55,10 @@ public class PermissionExpression implements Serializable {
     }
 
 
-    public boolean access(String targetType,String action,String targetID){
-        return true;
+    public boolean canAccess(String resourceType,String action,String resource){
+        return equals(of(resourceType, action, resource));
     }
+
+
 
 }

@@ -1,11 +1,15 @@
 package com.darwin.prototype.doj;
 
+import com.darwin.prototype.doj.sys.Permission;
+import com.darwin.prototype.doj.sys.Role;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,6 +32,10 @@ public class User implements Serializable {
     @NonNull
     @Column(name = "age",columnDefinition = "INT")
     private Integer age;
+
+    @NonNull
+    @ManyToMany(targetEntity = Role.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Set<Role> role = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

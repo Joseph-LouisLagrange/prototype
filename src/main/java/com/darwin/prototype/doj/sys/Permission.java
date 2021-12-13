@@ -41,6 +41,10 @@ public class Permission implements Serializable {
         return Objects.equals(ID, that.ID);
     }
 
+    public boolean isAgree(String resourceType, String action, String resource){
+        return permissionExpression.canAccess(resourceType, action, resource);
+    }
+
 
     @Override
     public int hashCode() {

@@ -13,7 +13,7 @@ import org.springframework.test.annotation.Rollback;
 import javax.transaction.Transactional;
 
 @SpringBootTest
-public class DBInitiator {
+public class DBTestInitiator {
 
     @Autowired
     RoleRepository roleRepository;
@@ -28,13 +28,10 @@ public class DBInitiator {
     @Transactional
     @Test
     public void initACL(){
-        Role admin = Role.of("ADMIN");
-        Role user = Role.of("user");
+        Role testAdmin = Role.of("TEST_ADMIN");
         Permission permission = Permission.of(PermissionExpression.parse("Pig:create:*"));
         permissionRepository.saveAndFlush(permission);
-        admin.getPermissions().add(permission);
-        user.getPermissions().add(permission);
-        roleRepository.saveAndFlush(admin);
-        roleRepository.saveAndFlush(user);
+        testAdmin.getPermissions().add(permission);
+        roleRepository.saveAndFlush(testAdmin);
     }
 }

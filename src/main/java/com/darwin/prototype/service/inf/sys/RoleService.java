@@ -3,10 +3,12 @@ package com.darwin.prototype.service.inf.sys;
 import com.darwin.prototype.doj.sys.Permission;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
 
+@Transactional
 public interface RoleService {
     /**************错误码登记区**************/
     int MISS_ROLE_BY_ID = 1;

@@ -30,7 +30,7 @@ public class Role implements Serializable {
     private String name;
 
     @NonNull
-    @ManyToMany(targetEntity = Permission.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Permission.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<Permission> permissions = new HashSet<>();
 
     @Override

@@ -12,13 +12,15 @@ import org.springframework.security.access.method.MethodSecurityMetadataSource;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 
+import javax.annotation.Resource;
 
+
+@Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 
-    @Autowired
+    @Resource(name = "mainPermissionEvaluator",type = PermissionEvaluator.class)
     PermissionEvaluator permissionEvaluator;
-
 
     @Override
     protected MethodSecurityExpressionHandler createExpressionHandler() {

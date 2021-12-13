@@ -1,6 +1,5 @@
 package com.darwin.prototype.controller;
 
-import org.apache.catalina.Session;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

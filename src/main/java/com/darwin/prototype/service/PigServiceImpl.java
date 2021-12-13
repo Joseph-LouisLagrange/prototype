@@ -1,10 +1,10 @@
 package com.darwin.prototype.service;
 
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PigServiceImpl implements PigService {
-
 
     @Override
     public void create() {
@@ -17,12 +17,12 @@ public class PigServiceImpl implements PigService {
     }
 
     @Override
-    public void getByID(long ID) {
+    public void getByID(Long ID) {
         System.out.println("getByID");
     }
 
     @Override
-    public void update(long ID) {
+    public void update(long[] IDs) {
         System.out.println("update");
     }
 

@@ -2,24 +2,25 @@ package com.darwin.prototype.service;
 
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public interface PigService {
     @PreAuthorize("hasPermission('*','Pig','create')")
-    public void create();
+    void create();
 
-    @PreAuthorize("hasPermission(ID,'Pig','delete')")
-    public void delete(long ID);
+    @PreAuthorize("hasPermission(#ID,'Pig','delete')")
+    void delete(long ID);
 
-    @PreAuthorize("hasPermission(ID,'Pig','get')")
-    public void getByID(long ID);
+    @PreAuthorize("hasPermission(#ID,'Pig','read')")
+    void getByID(Long ID);
 
-    @PreAuthorize("hasPermission(ID,'Pig','update')")
-    public void update(long ID);
+    @PreAuthorize("hasPermission(#IDs,'Pig','update')")
+    void update(long[] IDs);
 
     @PreAuthorize("hasPermission('*','Pig','delete')")
-    public void deleteAll();
+    void deleteAll();
 
-    @PreAuthorize("hasPermission('*','Pig','get')")
-    public void getAll();
+    @PreAuthorize("hasPermission('*','Pig','read')")
+    void getAll();
 }
