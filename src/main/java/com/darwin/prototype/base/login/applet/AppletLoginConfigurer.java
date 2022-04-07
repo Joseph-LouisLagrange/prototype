@@ -1,11 +1,10 @@
-package com.darwin.prototype.config.security.applet;
+package com.darwin.prototype.base.login.applet;
 
 import com.darwin.prototype.config.security.handler.SimpleAuthFailureHandler;
 import com.darwin.prototype.config.security.handler.SimpleAuthSuccessHandler;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.HttpSecurityBuilder;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.session.SessionManagementFilter;
 import org.springframework.web.client.RestTemplate;
 

@@ -1,6 +1,7 @@
 package com.darwin.prototype.config.security.handler;
 
 import com.darwin.prototype.dto.LoginDto;
+import com.google.gson.Gson;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
@@ -18,7 +19,9 @@ public class SimpleAuthFailureHandler implements AuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         PrintWriter writer = response.getWriter();
-        writer.println(LoginDto.loginFail(exception.getMessage()));
+        response.setContentType("application/json;charset=UTF-8");
+
+        writer.println(LoginDto.loginFail(exception.getMessage()).toJson());
         writer.flush();
     }
 }

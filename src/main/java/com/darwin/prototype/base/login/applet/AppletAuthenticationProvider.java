@@ -1,15 +1,14 @@
-package com.darwin.prototype.config.security.applet;
+package com.darwin.prototype.base.login.applet;
 
 
+import com.google.gson.reflect.TypeToken;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ClassUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 

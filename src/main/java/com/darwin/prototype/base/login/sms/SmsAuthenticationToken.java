@@ -1,4 +1,4 @@
-package com.darwin.prototype.config.security.sms;
+package com.darwin.prototype.base.login.sms;
 
 import lombok.*;
 import org.springframework.security.authentication.AbstractAuthenticationToken;

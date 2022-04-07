@@ -1,7 +1,7 @@
 package com.darwin.prototype.config.ext.applet;
 
-import com.darwin.prototype.config.security.applet.AppletAuthenticationProvider;
-import com.darwin.prototype.config.security.applet.AppletLoginConfigurer;
+import com.darwin.prototype.base.login.applet.AppletAuthenticationProvider;
+import com.darwin.prototype.base.login.applet.AppletLoginConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

@@ -1,8 +1,8 @@
 applet:
   auth:
-    app-ID: xxx
-    secret: xxx
-    grant-type: xxx
+    app-ID: wx7e4a1e4936993136
+    secret: e3cc468b9613f1b3a33ec9c2203c5626
+    grant-type: authorization_code
     login-path: /login/applet
 sms:
   aliyun:

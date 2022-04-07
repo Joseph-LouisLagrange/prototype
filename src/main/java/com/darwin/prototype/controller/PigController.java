@@ -9,6 +9,6 @@ import javax.servlet.http.HttpSession;
 public class PigController {
     @GetMapping("/hello")
     public String hello(HttpSession session){
-        return "hello";
+        return "你好";
     }
 }

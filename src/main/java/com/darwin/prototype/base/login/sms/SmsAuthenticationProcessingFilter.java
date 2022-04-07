@@ -1,4 +1,4 @@
-package com.darwin.prototype.config.security.sms;
+package com.darwin.prototype.base.login.sms;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
