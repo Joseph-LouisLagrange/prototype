@@ -1,11 +1,10 @@
 package com.darwin.prototype.base.acl;
 
-import com.darwin.prototype.doj.User;
+import com.darwin.prototype.po.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 import java.io.Serializable;

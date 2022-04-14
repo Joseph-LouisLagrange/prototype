@@ -1,14 +1,13 @@
 package com.darwin.prototype.base.acl;
 
-import com.darwin.prototype.doj.User;
-import com.darwin.prototype.doj.sys.Permission;
-import com.darwin.prototype.doj.sys.Role;
+import com.darwin.prototype.po.User;
+import com.darwin.prototype.po.sys.Permission;
+import com.darwin.prototype.po.sys.Role;
 import com.darwin.prototype.service.inf.sys.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.Collection;

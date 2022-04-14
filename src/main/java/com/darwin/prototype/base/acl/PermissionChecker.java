@@ -1,6 +1,5 @@
 package com.darwin.prototype.base.acl;
 
-import com.darwin.prototype.doj.User;
 import org.springframework.security.core.Authentication;
 
 import java.io.Serializable;

@@ -1,7 +1,7 @@
 package com.darwin.prototype.dto;
 
+
 import com.darwin.prototype.util.GlobalStaticBean;
-import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -21,6 +21,6 @@ public class LoginDto {
     }
 
     public String toJson(){
-        return GlobalStaticBean.GSON_BEAN.toJson(this);
+        return GlobalStaticBean.GSON.toJson(this);
     }
 }

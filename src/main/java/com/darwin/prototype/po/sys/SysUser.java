@@ -1,7 +1,7 @@
-package com.darwin.prototype.doj;
+package com.darwin.prototype.po.sys;
 
-import com.darwin.prototype.doj.sys.Permission;
-import com.darwin.prototype.doj.sys.Role;
+
+import com.darwin.prototype.annotation.Comment;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -15,38 +15,36 @@ import java.util.Set;
 @Setter
 @ToString
 @NoArgsConstructor
-@RequiredArgsConstructor(staticName = "of")
+@AllArgsConstructor
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "sys_user")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class SysUser implements Serializable {
 
     @Id
+    @Comment("用户 id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",unique = true,nullable = false,updatable = false,insertable = false,columnDefinition = "bigint UNSIGNED")
-    private long ID;
-
-    @NonNull
-    @Column(name = "name",columnDefinition = "VARCHAR(128)")
-    private String name;
-
-    @NonNull
-    @Column(name = "age",columnDefinition = "INT")
-    private Integer age;
+    protected long ID;
 
     @NonNull
     @ManyToMany(targetEntity = Role.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<Role> role = new HashSet<>();
+    protected Set<Role> roles = new HashSet<>();
+
+    public SysUser(@NonNull Set<Role> roles) {
+        this.roles = roles;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        User user = (User) o;
-        return Objects.equals(ID, user.ID);
+        SysUser sysUser = (SysUser) o;
+        return Objects.equals(ID, sysUser.ID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, name, age);
+        return Objects.hash(ID);
     }
 }

@@ -1,7 +1,7 @@
 package com.darwin.prototype.base.acl.rar;
 
 import com.darwin.prototype.base.acl.AbstractResourceAccessor;
-import com.darwin.prototype.doj.User;
+import com.darwin.prototype.po.User;
 import com.google.common.collect.Sets;
 import org.springframework.util.ClassUtils;
 

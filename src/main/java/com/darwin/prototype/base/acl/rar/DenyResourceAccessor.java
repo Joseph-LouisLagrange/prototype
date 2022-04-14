@@ -1,7 +1,7 @@
 package com.darwin.prototype.base.acl.rar;
 
 import com.darwin.prototype.base.acl.ResourceAccessor;
-import com.darwin.prototype.doj.User;
+import com.darwin.prototype.po.User;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;

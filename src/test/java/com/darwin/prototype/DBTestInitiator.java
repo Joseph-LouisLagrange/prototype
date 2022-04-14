@@ -1,10 +1,10 @@
 package com.darwin.prototype;
 
-import com.darwin.prototype.doj.sys.Permission;
-import com.darwin.prototype.doj.sys.PermissionExpression;
-import com.darwin.prototype.doj.sys.Role;
-import com.darwin.prototype.repository.PermissionRepository;
-import com.darwin.prototype.repository.RoleRepository;
+import com.darwin.prototype.po.sys.Permission;
+import com.darwin.prototype.po.sys.PermissionExpression;
+import com.darwin.prototype.po.sys.Role;
+import com.darwin.prototype.repository.sys.PermissionRepository;
+import com.darwin.prototype.repository.sys.RoleRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

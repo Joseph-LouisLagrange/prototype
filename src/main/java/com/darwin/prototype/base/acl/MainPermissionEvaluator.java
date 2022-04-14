@@ -1,6 +1,6 @@
 package com.darwin.prototype.base.acl;
 
-import com.darwin.prototype.doj.User;
+import com.darwin.prototype.po.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;

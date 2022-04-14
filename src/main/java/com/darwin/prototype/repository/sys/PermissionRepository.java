@@ -1,6 +1,6 @@
-package com.darwin.prototype.repository;
+package com.darwin.prototype.repository.sys;
 
-import com.darwin.prototype.doj.sys.Permission;
+import com.darwin.prototype.po.sys.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

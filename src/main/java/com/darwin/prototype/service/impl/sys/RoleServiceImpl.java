@@ -1,10 +1,10 @@
 package com.darwin.prototype.service.impl.sys;
 
-import com.darwin.prototype.doj.sys.Permission;
-import com.darwin.prototype.doj.sys.Role;
+import com.darwin.prototype.po.sys.Permission;
+import com.darwin.prototype.po.sys.Role;
 import com.darwin.prototype.exception.BaseExceptionType;
 import com.darwin.prototype.exception.CommonException;
-import com.darwin.prototype.repository.RoleRepository;
+import com.darwin.prototype.repository.sys.RoleRepository;
 import com.darwin.prototype.service.inf.sys.RoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

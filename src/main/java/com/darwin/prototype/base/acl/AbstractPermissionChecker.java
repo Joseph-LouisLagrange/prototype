@@ -1,6 +1,6 @@
 package com.darwin.prototype.base.acl;
 
-import com.darwin.prototype.doj.User;
+import com.darwin.prototype.po.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.util.ClassUtils;
 

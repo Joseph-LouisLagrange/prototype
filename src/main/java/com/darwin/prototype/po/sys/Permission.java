@@ -1,4 +1,4 @@
-package com.darwin.prototype.doj.sys;
+package com.darwin.prototype.po.sys;
 
 import lombok.*;
 import org.hibernate.Hibernate;

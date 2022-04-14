@@ -1,12 +1,9 @@
-package com.darwin.prototype.base.acl;
-
-import com.darwin.prototype.base.acl.AbstractResourceAccessor;
+package com.darwin.prototype.access;
 
 import com.darwin.prototype.base.acl.rar.BasicResourceAccessor;
 import com.darwin.prototype.base.acl.rar.SimpleResourceTypeMatch;
-import com.darwin.prototype.doj.User;
+import com.darwin.prototype.po.User;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Marker;
 import org.springframework.stereotype.Component;
 
 
@@ -20,7 +17,8 @@ public class PigResourceAccessor extends BasicResourceAccessor {
     }
 
     @Override
-    public boolean read(User user, Set<Long> resourceIDs) {
+    // @AccessControl("read") @Accessor @AccessResource
+    public boolean read( User user, Set<Long> resourceIDs) {
         log.debug("执行 read user:{} resourceIDs:{}",user,resourceIDs);
         return true;
     }
